@@ -16,6 +16,10 @@
 }
 
 /* ===== OVERRIDE ERPNext DEFAULT COLORS ===== */
+.navbar {
+    background: linear-gradient(135deg, var(--fd-primary), var(--fd-secondary)) !important;
+    color: var(--fd-white) !important;
+}
 .navbar-brand {
     background: linear-gradient(135deg, var(--fd-primary), var(--fd-secondary));
     color: var(--fd-white) !important;

@@ -25,17 +25,19 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css = [
-    "/assets/food_delivery/css/food_delivery.css",
-    "/assets/food_delivery/css/theme.css"
-]
+app_include_css = "/assets/food_delivery/css/theme.css"
+
+# app_include_css = [
+#     "/assets/food_delivery/css/food_delivery.css",
+#       "/assets/food_delivery/css/theme.css"
+# ]
 # app_include_js = "/assets/food_delivery/js/food_delivery.js"
 
 # include js, css files in header of web template
-web_include_css = [
-    "/assets/food_delivery/css/web.css",
-    "/assets/food_delivery/css/tasty-delivery-theme.css"
-]
+# web_include_css = [
+#     "/assets/food_delivery/css/web.css",
+#     "/assets/food_delivery/css/tasty-delivery-theme.css"
+# ]
 # web_include_js = "/assets/food_delivery/js/web.js"
 
 # include custom scss in every website theme (without file extension ".scss")
