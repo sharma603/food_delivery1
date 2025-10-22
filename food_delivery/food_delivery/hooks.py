@@ -26,7 +26,7 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 app_include_css = "/assets/food_delivery/css/theme.css"
-
+app_include_js = "/assets/food_delivery/js/navbar.js"
 # app_include_css = [
 #     "/assets/food_delivery/css/food_delivery.css",
 #       "/assets/food_delivery/css/theme.css"
@@ -96,8 +96,6 @@ app_include_css = "/assets/food_delivery/css/theme.css"
 # Uninstallation
 # ------------
 
-# before_uninstall = "food_delivery.uninstall.before_uninstall"
-# after_uninstall = "food_delivery.uninstall.after_uninstall"
 
 # Integration Setup
 # ------------------
