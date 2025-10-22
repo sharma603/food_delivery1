@@ -1,0 +1,540 @@
+/* Food Delivery App - Main Theme CSS */
+/* This file will be loaded in the main ERPNext interface */
+
+/* ===== FOOD DELIVERY BRAND COLORS ===== */
+:root {
+    --fd-primary: #ff6b35;        /* Orange - Food theme */
+    --fd-secondary: #f7931e;       /* Light Orange */
+    --fd-success: #28a745;        /* Green - Success/Ready */
+    --fd-warning: #ffc107;        /* Yellow - Preparing */
+    --fd-danger: #dc3545;         /* Red - Cancelled */
+    --fd-info: #17a2b8;           /* Blue - Info */
+    --fd-dark: #343a40;           /* Dark Gray */
+    --fd-light: #f8f9fa;          /* Light Gray */
+    --fd-white: #ffffff;
+    --fd-black: #000000;
+}
+
+/* ===== OVERRIDE ERPNext DEFAULT COLORS ===== */
+.navbar-brand {
+    background: linear-gradient(135deg, var(--fd-primary), var(--fd-secondary));
+    color: var(--fd-white) !important;
+}
+
+.navbar-brand:hover {
+    background: linear-gradient(135deg, var(--fd-secondary), var(--fd-primary));
+}
+
+/* ===== FOOD DELIVERY SPECIFIC STYLING ===== */
+
+/* Order Status Badges */
+.fd-status-pending {
+    background-color: var(--fd-warning);
+    color: var(--fd-dark);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.fd-status-preparing {
+    background-color: var(--fd-info);
+    color: var(--fd-white);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.fd-status-ready {
+    background-color: var(--fd-success);
+    color: var(--fd-white);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.fd-status-delivered {
+    background-color: var(--fd-dark);
+    color: var(--fd-white);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.fd-status-cancelled {
+    background-color: var(--fd-danger);
+    color: var(--fd-white);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* ===== FOOD ORDER CARD STYLING ===== */
+.fd-order-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background: var(--fd-white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.fd-order-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.fd-order-card .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.fd-order-card .order-id {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--fd-primary);
+}
+
+.fd-order-card .order-time {
+    font-size: 12px;
+    color: #666;
+}
+
+.fd-order-card .order-items {
+    margin-bottom: 12px;
+}
+
+.fd-order-card .order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px dotted #e0e0e0;
+}
+
+.fd-order-card .order-item:last-child {
+    border-bottom: none;
+}
+
+.fd-order-card .item-name {
+    font-weight: 500;
+}
+
+.fd-order-card .item-price {
+    color: var(--fd-primary);
+    font-weight: bold;
+}
+
+.fd-order-card .order-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--fd-dark);
+    text-align: right;
+    padding-top: 8px;
+    border-top: 2px solid var(--fd-primary);
+}
+
+/* ===== RESTAURANT DASHBOARD STYLING ===== */
+.fd-restaurant-dashboard {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    min-height: 100vh;
+}
+
+.fd-dashboard-card {
+    background: var(--fd-white);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--fd-primary);
+}
+
+.fd-dashboard-card h3 {
+    color: var(--fd-primary);
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+.fd-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.fd-stat-card {
+    background: var(--fd-white);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.fd-stat-card:hover {
+    transform: translateY(-4px);
+}
+
+.fd-stat-card .stat-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--fd-primary);
+    margin-bottom: 8px;
+}
+
+.fd-stat-card .stat-label {
+    color: #666;
+    font-size: 14px;
+}
+
+/* ===== MENU ITEM STYLING ===== */
+.fd-menu-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background: var(--fd-white);
+    transition: all 0.3s ease;
+}
+
+.fd-menu-item:hover {
+    border-color: var(--fd-primary);
+    box-shadow: 0 4px 8px rgba(255, 107, 53, 0.2);
+}
+
+.fd-menu-item .item-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    float: left;
+    margin-right: 16px;
+}
+
+.fd-menu-item .item-details h4 {
+    color: var(--fd-dark);
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.fd-menu-item .item-description {
+    color: #666;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.fd-menu-item .item-price {
+    color: var(--fd-primary);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.fd-menu-item .item-category {
+    background: var(--fd-light);
+    color: var(--fd-dark);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+/* ===== DELIVERY TRACKING STYLING ===== */
+.fd-delivery-tracker {
+    background: var(--fd-white);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.fd-delivery-tracker .tracker-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.fd-delivery-tracker .tracker-header h3 {
+    color: var(--fd-primary);
+    margin-bottom: 8px;
+}
+
+.fd-delivery-tracker .tracker-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.fd-delivery-tracker .tracker-step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+
+.fd-delivery-tracker .tracker-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background: #e0e0e0;
+    z-index: 1;
+}
+
+.fd-delivery-tracker .tracker-step.active::after {
+    background: var(--fd-primary);
+}
+
+.fd-delivery-tracker .step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.fd-delivery-tracker .tracker-step.active .step-icon {
+    background: var(--fd-primary);
+    color: var(--fd-white);
+}
+
+.fd-delivery-tracker .tracker-step.completed .step-icon {
+    background: var(--fd-success);
+    color: var(--fd-white);
+}
+
+.fd-delivery-tracker .step-label {
+    font-size: 12px;
+    color: #666;
+}
+
+.fd-delivery-tracker .tracker-step.active .step-label {
+    color: var(--fd-primary);
+    font-weight: bold;
+}
+
+/* ===== CUSTOM BUTTONS ===== */
+.fd-btn-primary {
+    background: linear-gradient(135deg, var(--fd-primary), var(--fd-secondary));
+    border: none;
+    color: var(--fd-white);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.fd-btn-primary:hover {
+    background: linear-gradient(135deg, var(--fd-secondary), var(--fd-primary));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+}
+
+.fd-btn-success {
+    background: var(--fd-success);
+    border: none;
+    color: var(--fd-white);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.fd-btn-success:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.fd-btn-warning {
+    background: var(--fd-warning);
+    border: none;
+    color: var(--fd-dark);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.fd-btn-warning:hover {
+    background: #e0a800;
+    transform: translateY(-2px);
+}
+
+/* ===== FORM STYLING ===== */
+.fd-form-group {
+    margin-bottom: 20px;
+}
+
+.fd-form-group label {
+    color: var(--fd-dark);
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.fd-form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.fd-form-control:focus {
+    outline: none;
+    border-color: var(--fd-primary);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .fd-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .fd-order-card {
+        padding: 12px;
+    }
+    
+    .fd-dashboard-card {
+        padding: 16px;
+    }
+    
+    .fd-delivery-tracker .tracker-steps {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .fd-delivery-tracker .tracker-step:not(:last-child)::after {
+        display: none;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fd-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.fd-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* ===== LOADING STATES ===== */
+.fd-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--fd-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== FOOD DELIVERY SPECIFIC ICONS ===== */
+.fd-icon-restaurant::before {
+    content: "🍽️";
+    margin-right: 8px;
+}
+
+.fd-icon-delivery::before {
+    content: "🚚";
+    margin-right: 8px;
+}
+
+.fd-icon-order::before {
+    content: "📋";
+    margin-right: 8px;
+}
+
+.fd-icon-customer::before {
+    content: "👤";
+    margin-right: 8px;
+}
+
+.fd-icon-payment::before {
+    content: "💳";
+    margin-right: 8px;
+}
+
+/* ===== OVERRIDE ERPNext SPECIFIC ELEMENTS ===== */
+.erpnext-app .navbar {
+    background: linear-gradient(135deg, var(--fd-primary), var(--fd-secondary));
+}
+
+.erpnext-app .sidebar {
+    background: var(--fd-white);
+    border-right: 1px solid #e0e0e0;
+}
+
+.erpnext-app .sidebar .nav-link {
+    color: var(--fd-dark);
+    transition: all 0.3s ease;
+}
+
+.erpnext-app .sidebar .nav-link:hover {
+    background: var(--fd-light);
+    color: var(--fd-primary);
+}
+
+.erpnext-app .sidebar .nav-link.active {
+    background: var(--fd-primary);
+    color: var(--fd-white);
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .fd-order-card {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    .fd-btn-primary,
+    .fd-btn-success,
+    .fd-btn-warning {
+        background: #000 !important;
+        color: #fff !important;
+    }
+}

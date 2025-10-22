@@ -1,0 +1,214 @@
+<!-- Food Delivery App - Custom Header Template -->
+<!-- Theme: Tasty Delivery -->
+<!-- File: food_delivery/templates/includes/custom_header.html -->
+
+<!-- Desktop Header -->
+<header class="fd-custom-header fd-theme-tasty-delivery">
+    <div class="fd-header-container">
+        <!-- Brand Logo -->
+        <a href="/" class="fd-brand-logo">
+            <span class="logo-icon">🍽️</span>
+            <span class="logo-text">Tasty Delivery</span>
+            <span class="logo-subtitle">Fresh Food Fast</span>
+        </a>
+        
+        <!-- Navigation Menu -->
+        <nav class="fd-nav-menu">
+            <li class="active">
+                <a href="/" data-icon="🏠">Home</a>
+            </li>
+            <li>
+                <a href="/restaurants" data-icon="🍕">Restaurants</a>
+            </li>
+            <li>
+                <a href="/menu" data-icon="📋">Menu</a>
+            </li>
+            <li>
+                <a href="/orders" data-icon="📦">My Orders</a>
+            </li>
+            <li>
+                <a href="/track" data-icon="🚚">Track Order</a>
+            </li>
+            <li>
+                <a href="/contact" data-icon="📞">Contact</a>
+            </li>
+        </nav>
+        
+        <!-- Header Actions -->
+        <div class="fd-header-actions">
+            <!-- Search -->
+            <div class="fd-header-search">
+                <input type="text" placeholder="Search restaurants, food..." id="header-search">
+                <span class="search-icon">🔍</span>
+            </div>
+            
+            <!-- Notifications -->
+            <div class="fd-header-notification">
+                <span class="notification-icon">🔔</span>
+                <span class="notification-badge">3</span>
+            </div>
+            
+            <!-- Shopping Cart -->
+            <a href="/cart" class="fd-header-cart">
+                <span class="cart-icon">🛒</span>
+                <span>Cart</span>
+                <span class="cart-count">2</span>
+            </a>
+            
+            <!-- Language Selector -->
+            <div class="fd-header-language">
+                <select id="language-selector">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+            
+            <!-- User Avatar -->
+            <div class="fd-header-user">
+                <img src="/assets/food_delivery/images/user-avatar.jpg" alt="User" class="user-avatar">
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Header -->
+<header class="fd-mobile-header fd-theme-tasty-delivery">
+    <div class="mobile-brand">
+        <a href="/" class="mobile-logo">
+            <span>🍽️ Tasty Delivery</span>
+        </a>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            ☰
+        </button>
+    </div>
+    
+    <div class="fd-mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="/">🏠 Home</a></li>
+            <li><a href="/restaurants">🍕 Restaurants</a></li>
+            <li><a href="/menu">📋 Menu</a></li>
+            <li><a href="/orders">📦 My Orders</a></li>
+            <li><a href="/track">🚚 Track Order</a></li>
+            <li><a href="/contact">📞 Contact</a></li>
+        </ul>
+        
+        <!-- Mobile Actions -->
+        <div class="mobile-actions" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+            <div class="mobile-search" style="margin-bottom: 15px;">
+                <input type="text" placeholder="Search..." style="width: 100%; padding: 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2); color: white;">
+            </div>
+            <div class="mobile-cart" style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="/cart" style="color: white; text-decoration: none;">
+                    🛒 Cart (2 items)
+                </a>
+                <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 12px;">
+                    $25.99
+                </span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- JavaScript for Mobile Menu -->
+<script>
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('active');
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    
+    if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+        mobileMenu.classList.remove('active');
+    }
+});
+
+// Search functionality
+document.getElementById('header-search').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        const searchTerm = this.value;
+        if (searchTerm.trim()) {
+            window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+        }
+    }
+});
+
+// Language selector
+document.getElementById('language-selector').addEventListener('change', function() {
+    const selectedLanguage = this.value;
+    // Implement language change logic here
+    console.log('Language changed to:', selectedLanguage);
+});
+
+// Notification click
+document.querySelector('.notification-icon').addEventListener('click', function() {
+    // Implement notification panel logic here
+    console.log('Notifications clicked');
+});
+
+// Cart click
+document.querySelector('.fd-header-cart').addEventListener('click', function(e) {
+    e.preventDefault();
+    // Implement cart panel logic here
+    console.log('Cart clicked');
+});
+
+// User avatar click
+document.querySelector('.user-avatar').addEventListener('click', function() {
+    // Implement user menu logic here
+    console.log('User menu clicked');
+});
+</script>
+
+<!-- CSS for additional styling -->
+<style>
+/* Additional mobile menu styling */
+.mobile-actions input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.mobile-actions input:focus {
+    outline: none;
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.5);
+}
+
+/* Smooth transitions */
+.fd-mobile-menu {
+    transition: all 0.3s ease;
+}
+
+/* Header scroll effect */
+.fd-custom-header.scrolled {
+    background: rgba(231, 76, 60, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Loading animation for header */
+.fd-custom-header.loading {
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.fd-custom-header.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+</style>
