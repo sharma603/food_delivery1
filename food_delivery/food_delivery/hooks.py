@@ -26,7 +26,10 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 app_include_css = "/assets/food_delivery/css/theme.css"
-app_include_js = "/assets/food_delivery/js/navbar.js"
+app_include_js = [
+    "/assets/food_delivery/js/navbar.js",
+    "/assets/food_delivery/js/sidebar.js"
+]
 # app_include_css = [
 #     "/assets/food_delivery/css/food_delivery.css",
 #       "/assets/food_delivery/css/theme.css"
@@ -67,6 +70,19 @@ app_include_js = "/assets/food_delivery/js/navbar.js"
 # application home page (will override Website Settings)
 # home_page = "login"
 
+override_doctype_class = {
+    "Attendance": "food_delivery.Attendance.attendance.CustomAttendance"
+}
+
+# Add JavaScript for Attendance doctype to handle custom status
+doctype_js = {
+    "Attendance": "public/js/attendance.js"
+}
+
+# Override whitelisted methods to include custom status options
+override_whitelisted_methods = {
+    "erpnext.hr.doctype.attendance.attendance.get_status_options": "food_delivery.Attendance.attendance.get_status_options"
+}
 # website user home page (by Role)
 # role_home_page = {
 # 	"Role": "home_page"
